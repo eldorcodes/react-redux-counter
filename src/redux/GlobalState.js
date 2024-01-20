@@ -9,7 +9,7 @@ const globalState = createSlice({
     initialState,
     reducers:{
         fetchData:(state) => {
-            state.data.push({name:'John Doe'})
+            state.data.push({name:'John Doe'});
         }
     }
 });

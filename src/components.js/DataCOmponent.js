@@ -16,6 +16,11 @@ export default function DataCOmponent() {
   return (
     <div>
         <h1>Fetch data</h1>
+        {
+            data?.stateData?.data?.map((user,index) => (
+                <p key={index}>{user?.name}</p>
+            ))
+        }
         <button onClick={() => dispatch(fetchData())}>fetch data</button>
     </div>
   )
