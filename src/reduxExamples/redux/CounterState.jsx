@@ -17,6 +17,8 @@ const counterState = createSlice({
     }
 });
 
+console.log('counterState',counterState);
+
 export const { increment, decrement } = counterState.actions;
 
 export default counterState.reducer;

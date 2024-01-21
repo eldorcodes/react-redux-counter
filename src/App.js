@@ -3,6 +3,8 @@ import './App.css';
 import CounterComponent from './components.js/CounterComponent';
 import DataCOmponent from './components.js/DataCOmponent';
 import CounterPage from './reduxExamples/redux/CounterPage';
+import MyComponent from './MyStore/MyComponent';
+import ChatRoom from './MyStore/ChatRoom';
 
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
       <header className="App-header">
        {/* <CounterComponent />
        <DataCOmponent /> */}
-       <CounterPage />
+       <ChatRoom />
       </header>
     </div>
   );
