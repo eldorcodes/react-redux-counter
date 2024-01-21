@@ -29,19 +29,38 @@ const chatSlice = createSlice({
     initialState:{
         sender:'Adam',
         receiver:'John',
-        messages:[]
+        messages:[],
+        bookArray:[]
     },
     reducers:{
-        sendMessage:(state) => {
+        sendMessage:(state,action) => {
+            console.log('state',state);
+            console.log('action',action);
             state.messages.push('Hello');
         },
-        getMessages:(state) => {
+        getMessages:(state,action) => {
+            console.log('aaction',action);
             return state.messages;
+        },
+        fetchBooks:(state,action) => {
+            console.log('state',state);
+            console.log('action',action);
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=law`)
+            .then(res => res.json())
+            .then((data) => {
+                console.log('book data',data);
+                let bookArray = []
+                data?.items?.forEach((item) => {
+                    bookArray.push(item);
+                });
+                state.chat.bookArray = bookArray;
+            })
+            .catch((err) => console.log(err));
         }
     }
 });
 
-export const { sendMessage, getMessages } = chatSlice.actions;
+export const { sendMessage, getMessages, fetchBooks } = chatSlice.actions;
 
 export const MyStore = configureStore({
     reducer:{

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMessages, sendMessage } from './MyStore';
+import { fetchBooks, getMessages, sendMessage } from './MyStore';
 
 export default function ChatRoom() {
     const dispatch = useDispatch();
@@ -9,6 +9,12 @@ export default function ChatRoom() {
         console.log('state',state);
         return state.chat.messages;
     });
+
+    const state = useSelector((state) => {
+        return state.chat.bookArray;
+    });
+
+    console.log('chatRoom state',state);
     
   return (
     <div>
@@ -20,6 +26,15 @@ export default function ChatRoom() {
         }
 
         <button onClick={() => dispatch(sendMessage())}>Send</button>
+        <button onClick={() => dispatch(fetchBooks())}>Fetch Books</button>
+
+        
+        <br />
+        {
+            state?.chat?.bookArray?.map((book,index) => (
+                <p key={index}>{book?.volumeInfo?.title}</p>
+            ))
+        }
     </div>
   )
 }

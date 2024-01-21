@@ -8,6 +8,7 @@ export const Store = configureStore({
 });
 
 Store.subscribe(() => {
+    console.log('Store',Store);
     let storeState = Store.getState();
     console.log('storeState',storeState);
     console.log('Successfully subscribed for Store');
