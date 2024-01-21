@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 /// slice is a state or collection
 // user state - user slice 
 const userSlice = createSlice({
@@ -56,11 +56,16 @@ const chatSlice = createSlice({
                 state.chat.bookArray = bookArray;
             })
             .catch((err) => console.log(err));
+        },
+        calculate:(state,action:PayloadAction<array>) => {
+            console.log('calculate state',state);
+            console.log(action.payload);
+            return action.payload;
         }
     }
 });
 
-export const { sendMessage, getMessages, fetchBooks } = chatSlice.actions;
+export const { sendMessage, getMessages, fetchBooks, calculate } = chatSlice.actions;
 
 export const MyStore = configureStore({
     reducer:{

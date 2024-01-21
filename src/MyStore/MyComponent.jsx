@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateName } from './MyStore';
+import { calculate, updateName } from './MyStore';
 
 export default function MyComponent() {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export default function MyComponent() {
         <h1>{username}</h1>
         <h2>{email}</h2>
         <button onClick={() => dispatch(updateName())}>Change name</button>
+        <button onClick={() => dispatch(calculate(10))}>Calculate</button>
     </div>
   )
 }

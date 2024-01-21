@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks, getMessages, sendMessage } from './MyStore';
+import { fetchBooks, getMessages, sendMessage, calculate } from './MyStore';
 
 export default function ChatRoom() {
     const dispatch = useDispatch();
@@ -27,6 +27,7 @@ export default function ChatRoom() {
 
         <button onClick={() => dispatch(sendMessage())}>Send</button>
         <button onClick={() => dispatch(fetchBooks())}>Fetch Books</button>
+        <button onClick={() => dispatch(calculate(['kiwi','banana','apple']))}>calculate </button>
 
         
         <br />
